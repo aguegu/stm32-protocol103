@@ -16,13 +16,17 @@ void setup() {
 }
 
 void loop() {
+
+	static uint8_t i = 0;
 	while (usart.available()) {
 		char c = usart.read();
 		fprintf(stdout, "0x%02X\r\n", c);
 		led_blue.toggle();
 	}
 
+	fprintf(stdout, "0x%02x\r\n", i++);
+
 	led_blue.toggle();
-	delayMicroseconds(1000000);
+	delayMicroseconds(500000);
 }
 

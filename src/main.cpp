@@ -18,11 +18,11 @@ void init() {
 	delay(1000);
 
 	Gpio usart_tx(GPIOA, GPIO_Pin_9,
-			RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO );
+		RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO);
 	usart_tx.init(GPIO_Mode_AF_PP);
 
 	Gpio usart_rx(GPIOA, GPIO_Pin_10,
-			RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO );
+		RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO);
 	usart_rx.init(GPIO_Mode_IN_FLOATING);
 
 	usart.init(115200);
@@ -31,7 +31,7 @@ void init() {
 	setvbuf(stdout, NULL, _IONBF, 0);
 	setvbuf(stderr, NULL, _IONBF, 0);
 
-	nvic.configureGroup(NVIC_PriorityGroup_0 );
+	nvic.configureGroup(NVIC_PriorityGroup_0);
 	nvic.configure(USART1_IRQn, 0, 2, ENABLE);
 }
 
