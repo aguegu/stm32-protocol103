@@ -14,7 +14,7 @@
 #include <cstdlib>
 #include <vector>
 
-#include "usart-rs485/usart-rs485.h"
+#include "usart/usart.h"
 #include "gpio/gpio.h"
 #include "tim/tim.h"
 #include "nvic/nvic.h"
@@ -27,7 +27,7 @@ extern void loop();
 extern void delay(u32 ms);
 extern void delayMicroseconds(vu32 us);
 
-extern UsartRs485 usart;
+extern Usart usart;
 extern Nvic nvic;
 
 #endif /* STM32_TEMPLATE_H_ */
