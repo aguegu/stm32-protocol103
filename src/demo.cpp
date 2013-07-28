@@ -17,18 +17,16 @@ void setup() {
 
 void loop() {
 
+	static uint8_t i = 0;
 	while (usart.available()) {
-		//char c =
-		usart.read();
-//		fprintf(stdout, "0x%02X\r\n", c);
+		char c = usart.read();
+		fprintf(stdout, "0x%02X\r\n", c);
 		led_blue.toggle();
 	}
 
-	static uint8_t i = 0;
 	fprintf(stdout, "0x%02x\r\n", i++);
 
-//	led_blue.toggle();
+	led_blue.toggle();
 	delayMicroseconds(500000);
-
 }
 
