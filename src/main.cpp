@@ -2,7 +2,10 @@
 
 int main(void) __attribute__((weak));
 
-Usart usart(USART1, RCC_APB2Periph_USART1, RCC_APB2PeriphClockCmd);
+Gpio usart_de(GPIOA, GPIO_Pin_8, RCC_APB2Periph_GPIOA);
+Gpio usart_re(GPIOA, GPIO_Pin_8, RCC_APB2Periph_GPIOA);
+
+UsartRs485 usart(USART1, RCC_APB2Periph_USART1, RCC_APB2PeriphClockCmd, usart_de, usart_re);
 
 int main(void) {
 	init();
@@ -19,7 +22,7 @@ void init() {
 
 	Gpio usart_tx(GPIOA, GPIO_Pin_9,
 		RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO);
-	usart_tx.init(GPIO_Mode_AF_PP);
+	usart_tx.init(GPIO_Mode_AF_OD);
 
 	Gpio usart_rx(GPIOA, GPIO_Pin_10,
 		RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO);
