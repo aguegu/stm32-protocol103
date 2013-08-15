@@ -19,8 +19,10 @@ int main(void) {
 
 void init() {
 
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+	GPIO_PinRemapConfig(GPIO_Remap_SWJ_Disable, ENABLE);
+
 	SysTick_Config(SystemCoreClock / 1000);	// Tick per ms
-	delay(1000);
 
 	setvbuf(stdin, NULL, _IONBF, 0);
 	setvbuf(stdout, NULL, _IONBF, 0);
