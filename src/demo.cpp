@@ -13,6 +13,14 @@ void setup() {
 	t2.init(1000, 1000);
 	t2.configureIT(TIM_IT_Update);
 	t2.setState();
+
+	fprintf(stdout, "char: %d bytes.\r\n", sizeof(char));
+	fprintf(stdout, "short: %d bytes.\r\n", sizeof(short));
+	fprintf(stdout, "int: %d bytes.\r\n", sizeof(int));
+	fprintf(stdout, "long: %d bytes.\r\n", sizeof(long));
+	fprintf(stdout, "float: %d bytes.\r\n", sizeof(float));
+	fprintf(stdout, "double: %d bytes.\r\n", sizeof(double));
+
 }
 
 void loop() {
