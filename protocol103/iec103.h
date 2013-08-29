@@ -89,8 +89,8 @@ typedef struct {
 	unsigned char buf[256]; //记录所指向的内存
 } TRecord;
 
-typedef struct  //下行	下发
-{
+//下行	下发
+typedef struct {
 	uint8_t _func :4;  // 原来这里是对命令进行分组处理,用于对任务进行预先准备　用于功能准备
 	uint8_t _fcv :1;  //帧计数有效位FCV
 	//FCV=1：表示FCB位有效；FCV=0：表示FCB位无效
@@ -106,8 +106,8 @@ typedef struct  //下行	下发
 	//DIR=1：表示此帧报文是由终端发出的上行报文
 } TCTRL_DOWN;
 
-typedef struct  //上行	 上传
-{
+//上行	 上传
+typedef struct {
 	uint8_t _func :4; //1:功能
 	uint8_t _dfc :1; //DFC(数据流控制位)。 DFC=0表示从站可以接受数据，
 	//DF =1表示从站缓冲区已满，无法接受新数据。
@@ -136,15 +136,15 @@ typedef struct {
 	uint8_t _end;
 } TFIX_PKG;
 
-typedef struct //_TFt_pkg_head
-{
+//_TFt_pkg_head
+typedef struct {
 	uint8_t _begin;
 	uint8_t _len;
 	uint8_t _len_cfm;
 	uint8_t _begin_cfm;
 	TCTRL _ctrl;
 	uint8_t _addr;
-} TDLY_HEAD, PDLY_HEAD; //68 可变
+} TDLY_HEAD; //68 可变
 
 typedef struct {
 	TDLY_HEAD * pHead; //报文头
@@ -153,7 +153,6 @@ typedef struct {
 
 	unsigned char * pAsduBuf; //数据正文区
 	unsigned char cAsduLen;
-
 } TDLY_FRAME;
 
 typedef struct {
@@ -162,6 +161,6 @@ typedef struct {
 	TDLY_FRAME a68;
 	TCTRL * pCtrl;
 	unsigned char * pAddr;
-} TFRAME, *PFRAME;
+} TFRAME;
 
 #endif /* IEC103_H_ */
